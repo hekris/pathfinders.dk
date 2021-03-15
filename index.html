@@ -66,25 +66,18 @@
 			<section id="404" class="d-flex min-vh--100">
 				<div class="container align-self-center text-white text-center">
 					<h1 class="display--1 mb-3">404</h1>
-<?php  
-    function getIPAddress() {  
-    //whether ip is from the share internet  
-     if(!emptyempty($_SERVER['HTTP_CLIENT_IP'])) {  
-                $ip = $_SERVER['HTTP_CLIENT_IP'];  
-        }  
-    //whether ip is from the proxy  
-    elseif (!emptyempty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  
-                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];  
-     }  
-//whether ip is from the remote address  
-    else{  
-             $ip = $_SERVER['REMOTE_ADDR'];  
-     }  
-     return $ip;  
-}  
-$ip = getIPAddress();  
-echo 'User Real IP Address - '.$ip;  
-?>  
+
+<?php 
+ $ipaddress = getenv("REMOTE_ADDR") ; 
+ Echo "Your IP Address is " . $ipaddress; 
+?> 
+
+
+<?php 
+ $ipaddress = $_SERVER['REMOTE_ADDR'] 
+ Echo "Your IP Address is " . $ipaddress; 
+?> 
+
 					<p class="h3 mb-5">Sorry, but this page doesn't exist.</p>
 					<a href="index.html" class="btn btn-white btn-shadow rounded-0">Go Back To Home</a>
 				</div>
